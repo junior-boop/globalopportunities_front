@@ -1,0 +1,105 @@
+---
+import Button from "../components/Button.astro";
+import Cart from "../components/Cart.astro";
+import Container from "../components/Container.astro";
+import Decoration from "../components/Decoration.astro";
+import Header from "../components/Header.astro";
+import Input from "../components/Input.astro";
+import Paypal from "../components/Paypal.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<style>
+  header {
+    height: 518px;
+    width: 100%;
+    background-image: url("/paiement.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .titre {
+    font-family: Roboto;
+    font-weight: 200;
+  }
+
+  .notif {
+    background-color: #0005;
+  }
+</style>
+
+<html lang='en'>
+  <head> </head>
+  <body class='bg-noir-100 text-white'>
+    <Header />
+    <header></header>
+    <section class='relative z-[1] mt-[150px]'>
+      <Container>
+        <div class='bg-noir-80'>
+          <Decoration class='h-[17px]' />
+          <div class='p-16'>
+            <div class='max-w-[650px]'>
+              <div class='font-roboto-slab text-5xl mb-20'>
+                Make the First Move
+              </div>
+              <div>
+                <form>
+                  <div class='px-6'>
+                    <Input name='name' label='Complet Name' />
+                    <Input name='email' label='E-mail' />
+                    <Input name='country' label='Country' />
+                    <Input name='region' label='Region | State' />
+                    <Input name='city' label='City' />
+                  </div>
+                  <div class='mt-9'>
+                    <div>
+                      <Cart />
+                      <Paypal />
+                      <!-- <div
+                        id='paypal-button-container-P-5LY888983R6347505MYNOFPA'>
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class='mt-9'>
+                    <Button> Validation </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <Footer />
+  </body>
+
+  <script
+    src='https://www.paypal.com/sdk/js?client-id=Ac5qPyQKtnPdoALvFa-VVQuWWUmpN3b4OHJrZRvLPCTF83rS19ksBKcaugNiZ5HhWF2OFuOsXUCgp303&vault=true&intent=subscription'
+    data-sdk-integration-source='button-factory'></script>
+  <!-- <script>
+    paypal
+      .Buttons({
+        style: {
+          shape: "rect",
+          color: "silver",
+          layout: "vertical",
+          label: "paypal",
+        },
+        createSubscription: function (data, actions) {
+          return actions.subscription.create({
+            /* Creates the subscription */
+            plan_id: "P-5LY888983R6347505MYNOFPA",
+          });
+        },
+        onApprove: function (data, actions) {
+          alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        },
+      })
+      .render("#paypal-button-container-P-5LY888983R6347505MYNOFPA"); // Renders the PayPal button
+  </script> -->
+</html>

@@ -1,0 +1,74 @@
+---
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import Header from "../components/Header.astro";
+import VideoItems from "../components/VideoItems.astro";
+
+export interface response {
+  videoId: string;
+  video: string;
+  image: string;
+  title: string;
+  descript: string;
+  size: number;
+  duration: number;
+}
+
+const server_url = import.meta.env.SERVER;
+
+const request = await fetch(`${server_url}metting`);
+const data: response[] = await request.json();
+---
+
+<style>
+  header {
+    height: 518px;
+    width: 100%;
+    background-image: url("/livre.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .titre {
+    font-family: Roboto;
+    font-weight: 200;
+  }
+
+  .notif {
+    background-color: #0005;
+  }
+</style>
+
+<html lang='en'>
+  <head> </head>
+  <body class='bg-noir-100 text-white'>
+    <Header />
+    <header></header>
+    <section class='relative z-[1] mt-[150px]'>
+      <Container>
+        <div class='p-16 bg-noir-80'>
+          <div class='font-extralight text-6xl'>Enjoy your videos</div>
+          <div class='notif px-10 py-8 mt-9'>
+            <div class='font-roboto text-[32px] w-[70%] font-semibold'>
+              Access a wealth of information and knowledge: Join our community!
+            </div>
+            <div class='text-2xl my-5'>
+              The videos you want to watch are only accessible to members of our
+              community. By subscribing, you will be able to download them at
+              your leisure
+            </div>
+            <Button href='/subscribe'>Join the community</Button>
+          </div>
+          <div class='py-6 mt-9'>
+            {data.map((el) => <VideoItems data={el} />)}
+          </div>
+        </div>
+      </Container>
+    </section>
+  </body>
+</html>

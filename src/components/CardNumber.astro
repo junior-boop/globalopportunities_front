@@ -1,0 +1,36 @@
+<script type='module'>
+  const card_number = document.querySelector("#card_number");
+
+  console.log(card_number);
+
+  card_number.addEventListener("input", (e) => {
+    let value = card_number.value;
+
+    const schema = "XXXX_XXXX_XXXX_XXXX";
+    let cardNumber = "";
+
+    for (let i = 0; i < value.length; i++) {
+      const rexgNumber = /\d+|\s*/g;
+      const position = schema[value.length];
+      const result = value.match(rexgNumber);
+
+      const r = result.join().replaceAll(",", "");
+      card_number.value = r;
+    }
+  });
+</script>
+
+<div>
+  <label for='card_number' class='block w-full font-roboto mb-3'>
+    Card Number
+  </label>
+  <input
+    type='text'
+    name='card_number'
+    id='card_number'
+    inputmode='numeric'
+    pattern='{4}[0-9] {4}[0-9] {4}[0-9] {4}[0-9]'
+    placeholder='XXXX XXXX XXXX XXXX'
+    class='block w-full px-3 py-2 text-lg text-black font-roboto outline-vert'
+  />
+</div>

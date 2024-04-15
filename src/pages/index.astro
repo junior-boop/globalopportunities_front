@@ -1,0 +1,333 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Container from "../components/Container.astro";
+import Button from "../components/Button.astro";
+import Decoration from "../components/Decoration.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<style>
+  .title {
+    @apply text-[3em] lg:text-[6em] font-roboto-slab font-extrabold text-center;
+  }
+
+  .sous-title {
+    @apply text-4xl lg:text-6xl font-roboto font-extralight w-[70%] text-center;
+  }
+
+  .img_diapo {
+    @apply flex items-end;
+  }
+
+  .pos_1 {
+    border-top-left-radius: 125px;
+  }
+
+  .pos_2 {
+    border-top-right-radius: 125px;
+  }
+
+  .line-height {
+    line-height: 1em;
+  }
+
+  .section-padding {
+    @apply py-[64px] lg:py-[170px];
+  }
+
+  .section-container {
+    @apply px-6 lg:px-0 flex gap-[56px] flex-col lg:flex-row;
+  }
+  .section-container-rev {
+    @apply px-6 lg:px-0 flex gap-[56px] flex-col-reverse lg:flex-row;
+  }
+
+  .section-title {
+    @apply font-roboto text-xl lg:text-[24px] font-semibold;
+  }
+  .section-title-second {
+    @apply text-3xl lg:text-4xl font-roboto-slab font-extrabold;
+  }
+
+  .section-paragraph {
+    @apply text-2xl lg:text-4xl font-roboto font-extralight;
+    line-height: 1.6em;
+  }
+  .line-height-normal {
+    line-height: normal;
+  }
+</style>
+
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class='bg-noir-100 text-white'>
+    <Header />
+    <header class='mb-[175px]'>
+      <!-- images telephones -->
+      <div class='lg:hidden h-[230px] relative w-full overflow-hidden'>
+        <div class='flex flex-1 relative b-0 w-[150%] left-[-45%] top-[-150%]'>
+          <div
+            class='w-[50%] h-[569px] bg-bleu-ciel img_diapo pos_1 absolute top-[-20px]'>
+            <img
+              src='/illustration_3.png'
+              alt=''
+              class='w-full aspect-square pos_1'
+            />
+          </div>
+          <div
+            class='w-[80%] h-[569px] bg-jaune img_diapo pos_2 relative top-[-60px] right-[-50%]'>
+            <img
+              src='/illustration_4.png'
+              alt=''
+              class='w-full aspect-square pos_1'
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <Container>
+      <div class='w-full mt-16'>
+        <div class='title w-[90%] mx-auto'>Empower Your Future</div>
+        <div class='sous-title mx-auto mb-16'>
+          Launch Your Global Career with International Organizations
+        </div>
+        <div>
+          <Button href='/videos' classe='mx-auto'>Get Instant Access</Button>
+        </div>
+      </div>
+    </Container>
+    <div class='hidden lg:flex mt-[124px]'>
+      <div class='flex flex-1'>
+        <div class='h-[569px] bg-rose img_diapo pos_1 relative top-[-80px]'>
+          <img
+            src='/illustration_1.png'
+            alt=''
+            class='w-full aspect-square pos_1'
+          />
+        </div>
+        <div class='h-[569px] bg-violet img_diapo pos_2 relative top-[20px]'>
+          <img
+            src='/illustration_2.png'
+            alt=''
+            class='w-full aspect-square pos_2'
+          />
+        </div>
+      </div>
+      <div class='flex flex-1'>
+        <div
+          class='h-[569px] bg-bleu-ciel img_diapo pos_1 relative top-[-20px]'>
+          <img
+            src='/illustration_3.png'
+            alt=''
+            class='w-full aspect-square pos_1'
+          />
+        </div>
+        <div class='h-[569px] bg-jaune img_diapo pos_2 relative top-[-60px]'>
+          <img
+            src='/illustration_4.png'
+            alt=''
+            class='w-full aspect-square pos_1'
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- image telephone -->
+    <div class='lg:hidden h-[500px] relative mt-[250px] w-full'>
+      <div
+        class='flex flex-1 w-[100%] relative lg:hidden items-center h-[700px] overflow-hidden'>
+        <div
+          class='w-[80%] h-[500px] lg:h-[569px] bg-rose img_diapo pos_1 absolute translate-y-[-100px] translate-x-[-15%]'>
+          <img
+            src='/illustration_1.png'
+            alt=''
+            class='w-full aspect-square pos_1'
+          />
+        </div>
+        <div
+          class='w-[60%] h-[500px] lg:h-[569px] bg-violet img_diapo pos_2 absolute right-[-40%] translate-x-[-20%]'>
+          <img
+            src='/illustration_2.png'
+            alt=''
+            class='w-full aspect-square pos_2'
+          />
+        </div>
+      </div>
+    </div>
+
+    <section class='my-[200px]'>
+      <Container>
+        <div>
+          <div class='w-fit font-extrabold text-[40px] lg:text-[64px] mx-auto'>
+            Of course!
+          </div>
+          <div
+            class='w-[85%] lg:w-[60%] text-4xl lg:text-[48px] font-extralight text-center mx-auto line-height'>
+            Here are some magnet phrases and sales copies to attract the
+            attention of your target audience:
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <section class='bg-noir-80 section-padding'>
+      <Container>
+        <div class='section-container'>
+          <div class='flex-1'>
+            <div class='section-title mb-3'>
+              For Young Students and Graduates:
+            </div>
+            <div class='section-title-second mb-6'>
+              Unlock Your Path to Global Impact:
+            </div>
+            <div class='section-paragraph mb-14'>
+              Kickstart Your Career in International Organizations!" "Dreaming
+              of Making a Difference Globally? Discover Your Journey with Our
+              Coaching Session."
+            </div>
+            <div class='section-title-second mb-6'>
+              Transform Your Passion for Change into a Career:
+            </div>
+            <div class='section-paragraph'>
+              Explore Opportunities in International Organizations!
+            </div>
+          </div>
+          <div
+            class='w-full lg:w-[500px] lg:h-[600px] aspect-square lg:aspect-auto bg-slate-500'>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section class='section-padding'>
+      <Container>
+        <div class='section-container-rev'>
+          <div
+            class='aspect-square lg:aspect-auto w-full lg:w-[500px] lg:h-[650px] bg-slate-500'>
+          </div>
+          <div class='flex-1'>
+            <div class='section-title mb-3 lg:text-right'>
+              For Entry-Level Employees and Mid-Level Staff:
+            </div>
+            <div class='section-title-second mb-6 lg:text-right'>
+              Elevate Your Career Trajectory:
+            </div>
+            <div class='section-paragraph mb-14 lg:text-right'>
+              Master the Art of Navigating International Organizations." "Ready
+              to Take Your Career to the Global Stage? Harness the Power of
+              International Organization Insights."
+            </div>
+            <div class='section-title-second mb-6 lg:text-right'>
+              Chart Your Course to Leadership:
+            </div>
+            <div class='section-paragraph lg:text-right'>
+              Gain Insider Knowledge for Advancement in International
+              Organizations.
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section class='bg-noir-80 section-padding'>
+      <Container>
+        <div class='section-container'>
+          <div class='flex-1'>
+            <div class='section-title mb-3'>For Consultants and Experts:</div>
+            <div class='section-title-second mb-6'>
+              Enhance Your Impact on a Global Scale:
+            </div>
+            <div class='section-paragraph mb-14'>
+              Strategize Your Career Growth with Expert Guidance.
+              <br />
+              Empower Your Career in International Organizations.
+            </div>
+            <div class='section-title-second mb-6'>
+              Position Yourself for Global Influence:
+            </div>
+            <div class='section-paragraph'>
+              Expert Coaching for Success in International Organizations.
+            </div>
+          </div>
+          <div
+            class='w-full lg:w-[500px] lg:h-[600px] aspect-square lg:aspect-auto bg-slate-500'>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section class='section-padding'>
+      <Container>
+        <div
+          class='font-roboto text-4xl lg:text-6xl w-fit mx-auto font-bold mb-20'>
+          General:
+        </div>
+        <div class='flex gap-6 flex-col lg:flex-row px-6 lg:px-0'>
+          <div
+            class='flex-1 p-9 border-t-[5px] border-jaune bg-jaune-transparent h-[572px]'>
+            <div
+              class='font-roboto-slab font-semibold text-4xl mb-5 line-height-normal'>
+              Step into the World of Global Change:
+            </div>
+            <div
+              class='font-roboto text-3xl line-height-normal font-extralight'>
+              Your Key to Career Success Starts Here!
+            </div>
+          </div>
+          <div
+            class='flex-1 p-9 border-t-[5px] border-violet bg-violet-transparent h-[572px]'>
+            <div
+              class='font-roboto-slab font-semibold text-4xl line-height-normal mb-5'>
+              Break into the World's Leading Organizations
+            </div>
+            <div
+              class='font-roboto text-3xl line-height-normal font-extralight'>
+              Your Gateway to Global Impact.
+            </div>
+          </div>
+          <div
+            class='flex-1 p-9 border-t-[5px] border-bleu-ciel bg-bleu-ciel h-[572px]'>
+            <div
+              class='font-roboto-slab font-bold text-4xl text-black line-height-normal'>
+              Empower Your Career with Insights from International Organization
+              Insiders.
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <section class='bg-noir-80'>
+      <div class='py-[125px]'>
+        <Container>
+          <div
+            class='flex gap-[64px] lg:gap-0 flex-col-reverse lg:flex-row px-6 lg:px-0'>
+            <div class='flex-1 flex lg:block flex-col items-center'>
+              <div
+                class='font-bold text-center lg:text-left text-4xl lg:text-5xl font-roboto-slab mb-9'>
+                Empower Your Career with this essential guide.
+              </div>
+              <Button href='/videos'>Watch Now!</Button>
+            </div>
+            <div class='font-roboto flex-1 flex flex-col gap-[-10px]'>
+              <div
+                class='font-thin text-5xl text-center lg:text-right line-height'>
+                Enjoy over
+              </div>
+              <div
+                class='font-roboto font-normal text-5xl text-center lg:text-right line-height'>
+                8 hours
+              </div>
+              <div
+                class='font-thin text-5xl text-center lg:text-right line-height'>
+                of videos
+              </div>
+            </div>
+          </div>
+        </Container>
+      </div>
+      <Decoration class='h-[0.8em]' />
+    </section>
+    <Footer />
+  </body>
+</html>

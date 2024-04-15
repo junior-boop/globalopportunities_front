@@ -1,0 +1,28 @@
+---
+export interface InputProp {
+  name: string;
+  label: string;
+}
+
+const name = Astro.props.name;
+const label = Astro.props.label;
+---
+
+<div class='w-full mb-4'>
+  <label for='' class='block mb-2 font-roboto'>{label}</label>
+  {
+    name === "email" ? (
+      <input
+        type='email'
+        name={name}
+        class='block w-full px-3 py-2 text-black outline-vert text-lg'
+      />
+    ) : (
+      <input
+        type='text'
+        name={name}
+        class='block w-full px-3 py-2 text-black outline-vert text-lg'
+      />
+    )
+  }
+</div>

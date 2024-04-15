@@ -1,0 +1,85 @@
+---
+import { secondsToMinutes, FileConvertSize } from "../utils/fonction";
+import type { response } from "../pages/videos.astro";
+
+const data: response = Astro.props.data;
+const title =
+  data.title.length > 50 ? `${data.title.substring(0, 49)}...` : data.title;
+
+const time = secondsToMinutes(data.duration);
+const description =
+  data.descript.length > 175
+    ? `${data.descript.substring(0, 175)}...`
+    : data.descript;
+const size = FileConvertSize(data.size);
+const videoName = data.video;
+
+const server_url = import.meta.env.SERVER;
+---
+
+<script>
+  const download = document.querySelectorAll(".download");
+  download.forEach((el) => {
+    el.addEventListener("click", () => {
+      console.log(el.dataset.link);
+      const ancre = document.createElement("a");
+      ancre.href = el.dataset.link;
+      ancre.download = el.download;
+      setTimeout(() => {
+        console.dir(ancre.click());
+      }, 1000);
+    });
+  });
+
+  const l = localStorage;
+
+  const usertoken = l.getItem("usertoken") !== null && l.getItem("usertoken");
+  console.log(usertoken);
+  if (usertoken === false) {
+    const user = document.querySelectorAll(".user");
+    user.forEach((el) => {
+      el.style.display = "none";
+    });
+  }
+</script>
+
+<style>
+  a {
+    cursor: pointer;
+  }
+</style>
+
+<article class='flex gap-6 w-[82%] mb-6'>
+  <div class='h-[250px] aspect-square bg-slate-600'>
+    <img
+      src=`${server_url}images/${data.image}`
+      alt={data.image}
+      class='w-full h-full object-cover'
+    />
+  </div>
+  <div class='pb-4'>
+    <div class='text-4xl font-semibold'>{title}</div>
+    <div class='flex gap-3 text-2xl'>
+      <div class='text-2xl italic'>{time}</div> |
+      <div class='text-2xl italic'>{size}</div>
+    </div>
+    <div class='desc text-2xl mt-3 font-extralight'>{description}</div>
+  </div>
+  <div class='user'>
+    <a
+      data-link=`${server_url}videos/${data.video}`
+      download=`${data.video}`
+      class='download'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='42'
+        height='42'
+        viewBox='0 0 32 32'
+        ><path
+          fill='currentColor'
+          d='M26 24v4H6v-4H4v4a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2v-4zm0-10l-1.41-1.41L17 20.17V2h-2v18.17l-7.59-7.58L6 14l10 10z'
+        ></path>
+      </svg>
+    </a>
+  </div>
+</article>

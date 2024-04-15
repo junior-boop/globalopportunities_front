@@ -1,0 +1,12 @@
+---
+const classe = Astro.props.classe;
+const url = Astro.props.href;
+---
+
+<a
+  href={url}
+  class=`max-w-[290px] lg:max-w-[400px] w-full h-[53px] flex items-center justify-center bg-vert rounded-full text-[20px] text-noir-100 font-medium ${classe}`>
+  <div>
+    <slot />
+  </div>
+</a>
