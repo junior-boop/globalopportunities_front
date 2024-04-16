@@ -4,6 +4,8 @@ import Container from "../components/Container.astro";
 import Header from "../components/Header.astro";
 import VideoItems from "../components/VideoItems.astro";
 
+export const prerender = false;
+
 export interface response {
   videoId: string;
   video: string;
