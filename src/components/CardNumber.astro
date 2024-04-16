@@ -1,23 +1,25 @@
-<script type='module'>
-  const card_number = document.querySelector("#card_number");
+<script>
+
+  const card_number = document.querySelector("#card_number") as HTMLInputElement;
 
   console.log(card_number);
 
-  card_number.addEventListener("input", (e) => {
+  if(card_number !== null){
+    card_number.addEventListener("input", () => {
     let value = card_number.value;
 
-    const schema = "XXXX_XXXX_XXXX_XXXX";
-    let cardNumber = "";
+    // const schema = "XXXX_XXXX_XXXX_XXXX";
 
     for (let i = 0; i < value.length; i++) {
       const rexgNumber = /\d+|\s*/g;
-      const position = schema[value.length];
-      const result = value.match(rexgNumber);
+      // const position = schema[value.length];
+      const result = value.match(rexgNumber) as RegExpMatchArray;
 
       const r = result.join().replaceAll(",", "");
       card_number.value = r;
     }
   });
+  }
 </script>
 
 <div>

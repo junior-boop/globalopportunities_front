@@ -12,34 +12,36 @@ const description =
     ? `${data.descript.substring(0, 175)}...`
     : data.descript;
 const size = FileConvertSize(data.size);
-const videoName = data.video;
 
 const server_url = import.meta.env.SERVER;
 ---
 
 <script>
-  const download = document.querySelectorAll(".download");
-  download.forEach((el) => {
+  const download = document.getElementsByClassName("download");
+  for (let i: number = 0; i < download.length; i++) {
+    const el = download[i] as HTMLAnchorElement;
     el.addEventListener("click", () => {
       console.log(el.dataset.link);
       const ancre = document.createElement("a");
-      ancre.href = el.dataset.link;
+      ancre.href = el.dataset.link as string;
       ancre.download = el.download;
       setTimeout(() => {
         console.dir(ancre.click());
       }, 1000);
     });
-  });
+  }
 
   const l = localStorage;
 
   const usertoken = l.getItem("usertoken") !== null && l.getItem("usertoken");
   console.log(usertoken);
   if (usertoken === false) {
-    const user = document.querySelectorAll(".user");
-    user.forEach((el) => {
+    const user = document.getElementsByClassName("user");
+    for (let i: number = 0; i < user.length; i++) {
+      const el = user[i] as HTMLElement;
+
       el.style.display = "none";
-    });
+    }
   }
 </script>
 

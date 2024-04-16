@@ -1,11 +1,9 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Container from "../components/Container.astro";
 import Button from "../components/Button.astro";
 import Decoration from "../components/Decoration.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <style>
@@ -61,9 +59,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 </style>
 
 <html lang='en'>
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
   <body class='bg-noir-100 text-white'>
     <Header />
     <header class='mb-[175px]'>

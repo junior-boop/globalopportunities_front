@@ -3,7 +3,7 @@ import Input from "./Input.astro";
 import CardNumber from "../components/CardNumber.astro";
 ---
 
-<script type='module'>
+<script is:inline>
   const card = document.querySelector("#cart");
   card.addEventListener("click", () => {
     if (card.checked) {
